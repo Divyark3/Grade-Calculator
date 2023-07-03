@@ -1,0 +1,328 @@
+package sdmcet.cse.oop;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+
+class GradeCalculator extends JFrame implements ActionListener {
+
+	JFrame f;
+	JButton b;
+	Container contentpane;
+	JPanel p;
+	JLabel l, txtl1, txtl2, txtl3, txtl4, txtl5, l1, l2, total, grade;
+	JTextField t1, t2, t3, t4, t5;
+
+	public GradeCalculator(String title) {
+
+		super(title);
+
+		// Creating a button
+		b = new JButton("Calculate");
+		b.addActionListener(this);
+
+		// Creating labels
+		l = new JLabel("Grade Calculator");
+
+		txtl1 = new JLabel("Enter IA-1 Marks:");
+		txtl2 = new JLabel("Enter IA-2 Marks:");
+		txtl3 = new JLabel("Enter IA-3 Marks:");
+		txtl4 = new JLabel("Enter CTA Marks:");
+		txtl5 = new JLabel("Enter SEE Marks:");
+
+		total = new JLabel("Total Marks:");
+		grade = new JLabel("Grade:");
+
+		// Creating text fields
+		l1 = new JLabel();
+		l2 = new JLabel();
+		t1 = new JTextField(10);
+		t2 = new JTextField(10);
+		t3 = new JTextField(10);
+		t4 = new JTextField(10);
+		t5 = new JTextField(10);
+
+		// Creating a panel
+		p = new JPanel();
+
+		// Adding color to the text fields,labels and button
+		l.setForeground(new Color(0xFFFFFF));
+		txtl1.setForeground(new Color(0xFFFFFF));
+		txtl2.setForeground(new Color(0xFFFFFF));
+		txtl3.setForeground(new Color(0xFFFFFF));
+		txtl4.setForeground(new Color(0xFFFFFF));
+		txtl5.setForeground(new Color(0xFFFFFF));
+		total.setForeground(new Color(0xFFFFFF));
+		grade.setForeground(new Color(0xFFFFFF));
+		l1.setForeground(new Color(0xFFFFFF));
+		l2.setForeground(new Color(0xFFFFFF));
+		b.setForeground(new Color(0x001c3e));
+		b.setBackground(new Color(0xd99308));
+
+		// Adding a border to the text fields
+		Border border = BorderFactory.createLineBorder(new Color(0xd99308), 2);
+		t1.setBorder(border);
+		t2.setBorder(border);
+		t3.setBorder(border);
+		t4.setBorder(border);
+		t5.setBorder(border);
+
+		// Adding a border to the button
+		Border border1 = BorderFactory.createLineBorder(new Color(0xffffff), 2);
+		b.setBorder(border1);
+		b.setOpaque(true);
+
+		// Adding color to the cursor/caret
+		t1.setCaretColor(new Color(0xd99308));
+		t2.setCaretColor(new Color(0xd99308));
+		t3.setCaretColor(new Color(0xd99308));
+		t4.setCaretColor(new Color(0xd99308));
+		t5.setCaretColor(new Color(0xd99308));
+
+		// Setting the font and text size
+		l.setFont(new Font("Ysabeau Infant", 25, 40));
+		txtl1.setFont(new Font("Ysabeau Infant", 20, 25));
+		txtl2.setFont(new Font("Ysabeau Infant", 20, 25));
+		txtl3.setFont(new Font("Ysabeau Infant", 20, 25));
+		txtl4.setFont(new Font("Ysabeau Infant", 20, 25));
+		txtl5.setFont(new Font("Ysabeau Infant", 20, 25));
+
+		t1.setFont(new Font("Ysabeau Infant", 25, 25));
+		t2.setFont(new Font("Ysabeau Infant", 25, 25));
+		t3.setFont(new Font("Ysabeau Infant", 25, 25));
+		t4.setFont(new Font("Ysabeau Infant", 25, 25));
+		t5.setFont(new Font("Ysabeau Infant", 25, 25));
+
+		total.setFont(new Font("Ysabeau Infant", 15, 20));
+		grade.setFont(new Font("Ysabeau Infant", 15, 20));
+
+		l1.setFont(new Font("Ysabeau Infant", 20, 25));
+		l2.setFont(new Font("Ysabeau Infant", 20, 25));
+
+		b.setFont(new Font("Ysabeau Infant", 25, 30));
+
+		// Setting GridBag constraints and adding the components onto the panel
+		GridBagLayout gridbag = new GridBagLayout();
+		GridBagConstraints c = new GridBagConstraints();
+		c.insets = new Insets(5, 10, 15, 20);
+		p.setLayout(gridbag);
+		c.weighty = 10;
+		c.weightx = 10;
+
+		c.gridx = 3;
+		c.gridy = 0;
+		c.ipady = 40;
+		gridbag.setConstraints(l, c);
+		p.add(l);
+
+		c.gridx = 2;
+		c.gridy = 1;
+		c.ipady = 25;
+		gridbag.setConstraints(txtl1, c);
+		p.add(txtl1);
+
+		c.gridx = 4;
+		c.gridy = 1;
+		gridbag.setConstraints(t1, c);
+		t1.setBorder(border);
+		p.add(t1);
+
+		c.gridx = 2;
+		c.gridy = 2;
+		gridbag.setConstraints(txtl2, c);
+		p.add(txtl2);
+
+		c.gridx = 4;
+		c.gridy = 2;
+		gridbag.setConstraints(t2, c);
+		p.add(t2);
+
+		c.gridx = 2;
+		c.gridy = 3;
+		gridbag.setConstraints(txtl3, c);
+		p.add(txtl3);
+
+		c.gridx = 4;
+		c.gridy = 3;
+		gridbag.setConstraints(t3, c);
+		p.add(t3);
+
+		c.gridx = 2;
+		c.gridy = 4;
+		gridbag.setConstraints(txtl4, c);
+		p.add(txtl4);
+
+		c.gridx = 4;
+		c.gridy = 4;
+		gridbag.setConstraints(t4, c);
+		p.add(t4);
+
+		c.gridx = 2;
+		c.gridy = 5;
+		gridbag.setConstraints(txtl5, c);
+		p.add(txtl5);
+
+		c.gridx = 4;
+		c.gridy = 5;
+		gridbag.setConstraints(t5, c);
+		p.add(t5);
+
+		c.gridx = 1;
+		c.gridy = 8;
+		gridbag.setConstraints(total, c);
+		p.add(total);
+
+		c.gridx = 2;
+		c.gridy = 8;
+		gridbag.setConstraints(l1, c);
+		p.add(l1);
+
+		c.gridx = 4;
+		c.gridy = 8;
+		gridbag.setConstraints(grade, c);
+		p.add(grade);
+
+		c.gridx = 5;
+		c.gridy = 8;
+		gridbag.setConstraints(l2, c);
+		p.add(l2);
+
+		c.gridx = 3;
+		c.gridy = 6;
+		c.ipady = 35;
+		c.ipadx = 70;
+		gridbag.setConstraints(b, c);
+		p.add(b);
+
+		// Setting a color for the panel and adding it to the content pane
+		contentpane = this.getContentPane();
+		p.setBackground(new Color(0x001c3e));
+		contentpane.add(p);
+	}
+
+	void print(String content, JTextField t) {
+
+		// To display the dialog box and reset the invalid text field
+		JOptionPane.showMessageDialog(f, content, "Error!", JOptionPane.ERROR_MESSAGE);
+		l1.setText("");
+		l2.setText("");
+		t.setText("");
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		int ia1 = -20;
+		int ia2 = -20;
+		int ia3 = -20;
+		int cta = -20;
+		int see = -20;
+		int cie;
+		int total;
+		char grade;
+
+		// Exception handling
+		try {
+			ia1 = Integer.parseInt(t1.getText());
+		} catch (NumberFormatException nfe) {
+			print("Enter valid IA-1 marks.", t1);
+		}
+
+		try {
+			ia2 = Integer.parseInt(t2.getText());
+		} catch (NumberFormatException nfe) {
+			print("Enter valid IA-2 marks.", t2);
+		}
+
+		try {
+			ia3 = Integer.parseInt(t3.getText());
+		} catch (NumberFormatException nfe) {
+			print("Enter valid IA-3 marks.", t3);
+		}
+
+		try {
+			cta = Integer.parseInt(t4.getText());
+		} catch (NumberFormatException nfe) {
+			print("Enter valid CTA marks.", t4);
+		}
+
+		try {
+			see = Integer.parseInt(t5.getText());
+		} catch (NumberFormatException nfe) {
+			print("Enter valid SEE marks.", t5);
+		}
+
+		// Checks and displays if the entered values are invalid
+		if (ia1 > 20 || ia1 < 0)
+			print("IA1 marks is INCORRECT!", t1);
+		else if (ia2 > 20 || ia2 < 0)
+			print("IA2 marks is INCORRECT!", t2);
+		else if (ia3 > 20 || ia3 < 0)
+			print("IA3 marks is INCORRECT!", t3);
+		else if (cta > 10 || cta < 0)
+			print("CTA marks is INCORRECT!", t4);
+		else if (see > 100 || see < 0)
+			print("SEE marks is INCORRECT!", t5);
+		else {
+			// Calculating CIE marks
+			if (ia1 >= ia2 && ia3 >= ia2)
+				cie = ia1 + ia3 + cta;
+			else if (ia1 >= ia3 && ia2 >= ia3)
+				cie = ia1 + ia2 + cta;
+			else
+				cie = ia2 + ia3 + cta;
+
+			if (cie < 20)
+				print("The Student is detained from taking SEE.", t5);
+
+			if (see < 38)
+				print("Student FAILED : Grade - F.", t5);
+
+			if (see == 38 || see == 39)
+				see = 40;
+
+			// Determining and Displaying the Total marks
+			if (see % 2 == 0)
+				total = cie + see / 2;
+			else
+				total = cie + (see + 1) / 2;
+
+			if (cie >= 20 && see >= 40)
+				l1.setText(String.valueOf(total));
+			else
+				l1.setText("");
+
+			// Determining and Displaying the grade
+			if (total >= 90)
+				grade = 'S';
+			else if (total >= 80)
+				grade = 'A';
+			else if (total >= 70)
+				grade = 'B';
+			else if (total >= 60)
+				grade = 'C';
+			else if (total >= 50)
+				grade = 'D';
+			else if (total >= 40)
+				grade = 'E';
+			else if (cie >= 20 && see >= 40)
+				grade = 'F';
+			else
+				grade = ' ';
+
+			l2.setText(String.valueOf(grade));
+
+		}
+	}
+}
+
+public class GradeCalculatorDemo {
+
+	public static void main(String[] args) {
+
+		JFrame f = new GradeCalculator("Students Grading System");
+
+		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		f.setBounds(0, 0, 1400, 900);
+		f.setVisible(true);
+	}
+}
