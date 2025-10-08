@@ -1,0 +1,2 @@
+I built a simple yet interactive Grade Calculator using Java, with javax.swing and java.awt for the graphical interface. The app helps users calculate total marks and grades for a subject with ease. I also added dialogue boxes to make the experience smoother — they alert users about any input errors so everything runs without a hitch.
+This project was a fun way to explore GUI design in Java and improve my understanding of user interaction and error handling.
